@@ -1,0 +1,10 @@
+spring:
+   application:
+      name: cric-registry
+   profiles:
+      active:    
+   cloud:
+      config:
+        failFast: false
+        uri: http://localhost:8888
+        profile: default

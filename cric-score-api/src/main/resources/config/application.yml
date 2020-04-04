@@ -1,0 +1,37 @@
+server:
+  port: 8081
+  
+eureka:
+  instance:
+    appname: cric-score-api
+    lease-renewal-interval-in-seonds: 5
+    lease-expiration-duration-in-seconds: 10
+    prefer-ip-address: true
+  client:
+    enabled: true
+    register-with-eureka: true
+    fetch-registry: true
+    instance-info-replication-interval-seconds: 10
+    registry-fetch-interval-seconds: 10
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 10
+
+spring:
+  application:   
+    name: cric-score-api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
+
+logging:
+  level:
+    com.criapi.scoreapi: DEBUG                  

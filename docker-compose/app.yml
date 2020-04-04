@@ -1,0 +1,22 @@
+version: '2'
+services:
+  cric-registry:
+    image: amankishan/cric-registry:1.0
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+    ports:
+      - 8761:8761
+  cric-score-api:
+    image: amankishan/cric-score-api:1.0
+    ports:
+      - 8081:8081
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=docker
+  cric-gateway:
+    image: amankishan/cric-gateway:1.0
+    ports:
+      - 8090:8090
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=docker
