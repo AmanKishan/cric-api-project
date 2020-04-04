@@ -69,8 +69,8 @@ public class CricScoreService {
 			 cricScoreWinner.setTeam2(team2);
 		}
 		cricScoreWinner.setWinnerScore(winnerScore);
-		
-		
+		String rotateScore=rotateScore(cricScoreWinner.getWinnerScore());
+		cricScoreWinner.setRoundRotation(rotateScore);
 	}
 	
 	private static String getScoreWithWicket(String team) {
@@ -93,4 +93,12 @@ public class CricScoreService {
 		
 	}
 	
+	
+	private String rotateScore(String score) {
+		int idx  =score.length() -1;
+		char ch = score.charAt(idx);
+		score = score.substring(0, idx);
+		String lastChar=Character.toString(ch);
+		return lastChar + score;
+	}
 }
